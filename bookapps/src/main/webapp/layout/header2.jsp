@@ -18,7 +18,7 @@
 
 <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.10.15/datatables.min.css"/>
 <script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.15/datatables.min.js"></script>
- -->      
+ -->
  <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js"></script>
 
@@ -63,8 +63,9 @@
          
          <c:if  test="${empty LOGGED_IN_USER}">
        	  	<a  href="../auth/login" class="btn btn-primary">Login</a> 
-        	 <a  href="../auth/register" class="btn btn-success">SignUp</a>
-         </c:if>
+          	 <a  href="../auth/register" class="btn btn-success">SignUp</a>
+          </c:if>          
+          
          
           <li class="nav-item">
             <a class="nav-link" href="../auth/logout">Logout</a>
@@ -74,8 +75,8 @@
           
         </ul>
          <c:if  test="${empty LOGGED_IN_USER}">
-       	  	<a  href="../auth/login" class="btn btn-primary">Login</a> 
-        	 <a  href="../auth/register" class="btn btn-success">SignUp</a>
+       	  	<a  href="../auth/login" class="btn btn-primary">Sign Out</a> 
+        	<!--  <a  href="../auth/register" class="btn btn-success">SignUp</a>  -->
          </c:if>
       </div>
       

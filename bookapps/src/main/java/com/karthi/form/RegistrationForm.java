@@ -19,7 +19,7 @@ public class RegistrationForm {
 	@NotNull
 	@Size(max = 50, message="Email cannot exceed 50 characters")
 	private String email;
-
+ 
 	@NotNull
 	@NotBlank(message = "Password cannot be empty")
 	@Size.List({ @Size(min = 8, message = "Password  must be minimum 8 characters"),

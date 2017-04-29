@@ -21,5 +21,5 @@ public class EmailUtil {
 		helper.setText(body);
 		javaMailSender.send(message);
 		System.out.println("mail sent...");
-	}
+	}   
 }

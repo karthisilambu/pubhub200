@@ -41,9 +41,9 @@ public class AuthController {
 
 		User user = userService.findByEmailAndPassword(email, password);
 		if (user != null) {
-			//session.setAttribute("User_Login", user);
-			
-			session.setAttribute("LOGGED_IN_USER", user);
+			session.setAttribute("LOGGED-IN-USER", user);
+		 	
+			//session.setAttribute("LOGGED_IN_USER", user);
 			LOGGER.info("Login Success");
 			return "redirect:../books";
 		} else{
@@ -93,6 +93,6 @@ public class AuthController {
 	@GetMapping("/logout")
 	public String logout(HttpSession session) {
 		session.invalidate();
-		return "redirect:/";
+		return "redirect:../";
 	}
 }

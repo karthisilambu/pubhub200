@@ -13,5 +13,5 @@ public class BookappsApplication {
 		SpringApplication.run(BookappsApplication.class, args);
 		LOGGER.info("Application Started");
  
-	}
+	} 
 }

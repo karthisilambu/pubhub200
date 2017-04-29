@@ -6,8 +6,17 @@
 <title>List Books</title>
 </head>
 <body>
-	<%@ include file="../../layout/header.jsp"%>
+	<%@ include file="../../layout/header2.jsp"%>
 	<div class="container-fluid">
+	<div class="row">
+			<div class="col-md-9">
+				<span> <b> Sort by : </b>
+				</span> Price : <a href="../books?price=asc"> Low to High </a> 
+				<a href="../books?price=desc">High to Low</a>
+                <a href="../books?price=high">High</a>
+                
+			</div>     
+</div>
 
 		<div class="row">
 			<div class="col-md-8">

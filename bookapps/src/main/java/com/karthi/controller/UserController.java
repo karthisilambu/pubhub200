@@ -24,5 +24,5 @@ public class UserController {
 		System.out.println(users);
 		session.setAttribute("USERS_LIST", users);
 return "user/register";
-}
+} 
 }

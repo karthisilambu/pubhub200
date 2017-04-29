@@ -40,7 +40,7 @@ public class Book {
 
 	public Integer getPrice() {
 		return price;
-	}
+	} 
 
 	public void setPrice(Integer price) {
 		this.price = price;

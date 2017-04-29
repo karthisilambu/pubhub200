@@ -21,7 +21,7 @@
 					<font color="red"><c:out value="${ERROR_MESSAGE}" /></font> <br/>
 				</c:if>
 				
-				
+				         
 				<form id="addUserFrm" class="form-horizontal" role="form"
 					method="POST" action="../auth/register">
 
