@@ -2,10 +2,11 @@ package com.karthi.model;
 
 import javax.persistence.Column;
 
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -27,6 +28,10 @@ public class User {
  
 	@Column(name = "password")
 	private String password;
+	
+	@ManyToOne
+	@JoinColumn(name="role_id")
+	private Role role;
 
 	public Long getId() {
 		return id;
@@ -60,9 +65,20 @@ public class User {
 		this.password = password;
 	}
 
+	public Role getRole() {
+		return role;
+	}
+
+	public void setRole(Role role) {
+		this.role = role;
+	}
+
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", email=" + email + ", password=" + password + "]";
+		return "User [id=" + id + ", name=" + name + ", email=" + email + ", password=" + password + ", role=" + role
+				+ "]";
 	}
+
+		
 
 }

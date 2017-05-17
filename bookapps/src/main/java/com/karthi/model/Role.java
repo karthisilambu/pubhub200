@@ -1,27 +1,30 @@
 package com.karthi.model;
-import java.time.LocalDate;
+
 import javax.persistence.Column;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
 import lombok.Data;
+
 @Data
 @Entity
-@Table(name = "books")
-public class Book {
-
+@Table(name="role")
+public class Role {
 	@Id
+	
 	@Column(name = "id")
 	private Long id;
 
 	@Column(name = "name")
 	private String name;
 
-	@Column(name="price")
-	private Float price;
-	
-	@Column(name="released_date")
-	private LocalDate releasedDate;
+	@Column(name = "active")
+	private String active;
+ 
+	@Column(name = "created_date")
+	private String created_date;
 
 	public Long getId() {
 		return id;
@@ -39,26 +42,28 @@ public class Book {
 		this.name = name;
 	}
 
-
-	public LocalDate getReleasedDate() {
-		return releasedDate;
+	public String getActive() {
+		return active;
 	}
 
-	public void setReleasedDate(LocalDate releasedDate) {
-		this.releasedDate = releasedDate;
+	public void setActive(String active) {
+		this.active = active;
 	}
 
-	public Float getPrice() {
-		return price;
+	public String getCreated_date() {
+		return created_date;
 	}
 
-	public void setPrice(Float price) {
-		this.price = price;
+	public void setCreated_date(String created_date) {
+		this.created_date = created_date;
 	}
 
 	@Override
 	public String toString() {
-		return "Book [id=" + id + ", name=" + name + ", price=" + price + ", releasedDate=" + releasedDate + "]";
-	}	
+		return "Roll [id=" + id + ", name=" + name + ", active=" + active + ", created_date=" + created_date + "]";
+	}
+	
+	
+	
 
 }

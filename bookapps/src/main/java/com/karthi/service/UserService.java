@@ -2,10 +2,12 @@ package com.karthi.service;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.karthi.form.RegistrationForm;
+import com.karthi.model.Book;
 import com.karthi.model.User;
 import com.karthi.repository.UserRepository;
 
@@ -21,6 +23,10 @@ public class UserService {
 
 	public void save(User user){
 		userRepository.save(user);
+	}
+	public User findByEmail(String email)
+	{
+		return userRepository.findByEmail(email);
 	}
 	public List<User> findAll() {
 		// TODO Auto-generated method stub
@@ -44,7 +50,10 @@ public class UserService {
 		String subject = "Your account has been created";
 		String body = "Welcome to Revature ! You can login to your account !";
 		//emailUtil.send(user.getEmail(), subject, body);
-
+ 
 }
 
+	public User findOne(Long id){
+		return userRepository.findOne(id);
+}
 }

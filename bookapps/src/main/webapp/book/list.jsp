@@ -6,15 +6,16 @@
 <title>List Books</title>
 </head>
 <body>
-	<%@ include file="../../layout/header2.jsp"%>
+	<%@ include file="../../layout/header.jsp"%>
 	<div class="container-fluid">
 	<div class="row">
 			<div class="col-md-9">
 				<span> <b> Sort by : </b>
 				</span> Price : <a href="../books?price=asc"> Low to High </a> 
 				<a href="../books?price=desc">High to Low</a>
-                <a href="../books?price=high">High</a>
-                
+                <a href="../books?relesed_date=desc">Newest First</a>
+                <a href="../books/sales">Top Books</a>
+			
 			</div>     
 </div>
 
@@ -30,7 +31,7 @@
 						</div>
 
 						<div class="col-lg-8 col-md-8 col-xs-12">
-							<p class="card-text">${book.name}-Rs.${book.price }</p>
+							<p class="card-text">${book.name}-Rs.${book.price}</p>
 							<a href="../books/${book.id}" class="btn btn-success btn-sm">View</a>
 						</div>
 					</div>

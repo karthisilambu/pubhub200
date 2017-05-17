@@ -41,27 +41,31 @@
             <a class="nav-link" href="../books">Books</a>
           </li>
           <c:if  test="${LOGGED_IN_USER!=null}">
+          
           <li class="nav-item">
             <a class="nav-link" href="../orders/myorders">My Orders</a>
           </li>
           </c:if>
           <c:if  test="${LOGGED_IN_USER!=null}">
+          <c:if  test="${LOGGED_IN_USER.role.id==1}">
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admin</a>
-             <div class="dropdown-menu" aria-labelledby="dropdown01">            
-            <a class="dropdown-item"  href="../users">All Users</a>
-			<a  class="dropdown-item" href="../orders">All Orders</a>
+            <div class="dropdown-menu" aria-labelledby="dropdown01">            
+			<a class="dropdown-item" href="../orders">All Orders</a>
             </div>
           </li>
           </c:if>
+          </c:if>
         </ul>
+        
         
          <ul class="navbar-nav mr-auto pull-right">                  
          <c:if  test="${!empty LOGGED_IN_USER}">
-         <li class="nav-item"><a class="nav-link"> Welcome ${LOGGED_IN_USER.name} </a></li>
+         <li class="nav-item"><a class="nav-link"> Welcome ${logid}  </a></li>
          
          
          <c:if  test="${empty LOGGED_IN_USER}">
+         <li class="nav-item"><a class="nav-link"> Welcome ${LOGGED_IN_USER.name}(${LOGGED_IN_USER.role.name})</a></li>
        	  	<a  href="../auth/login" class="btn btn-primary">Login</a> 
         	 <a  href="../auth/register" class="btn btn-success">SignUp</a>
          </c:if>

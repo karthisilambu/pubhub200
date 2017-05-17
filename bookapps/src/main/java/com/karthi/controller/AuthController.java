@@ -1,8 +1,7 @@
 package com.karthi.controller;
- 
 import javax.servlet.http.HttpSession;
-import javax.validation.Valid;
 
+import javax.validation.Valid;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,10 +22,7 @@ import com.karthi.util.EmailUtil;
 @RequestMapping("auth")
 
 public class AuthController {
-
 	private static final Logger LOGGER = Logger.getLogger(AuthController.class);
-
-	
 	@Autowired
 	private UserService userService;
 	@Autowired
@@ -40,10 +36,10 @@ public class AuthController {
 		LOGGER.debug(new Object[] { email, password });
 
 		User user = userService.findByEmailAndPassword(email, password);
+		LOGGER.info("User:" + user);
 		if (user != null) {
-			session.setAttribute("LOGGED-IN-USER", user);
-		 	
-			//session.setAttribute("LOGGED_IN_USER", user);
+			session.setAttribute("LOGGED_IN_USER", user);	 	
+			session.setAttribute("logid",email);
 			LOGGER.info("Login Success");
 			return "redirect:../books";
 		} else{
@@ -51,9 +47,6 @@ public class AuthController {
 			modelMap.addAttribute("error_msg", "invalid username or password");
 			return "fail";
 	}
-
-
-	
 	}
 
 
@@ -71,7 +64,7 @@ public class AuthController {
 			
 			if (result.hasErrors()) {
 				modelMap.addAttribute("errors", result.getAllErrors());
-				modelMap.addAttribute("regFormData", user );
+				modelMap.addAttribute("regFormData", user);
 				return "user/register";
 			}else {
 				userService.register(user);
@@ -87,7 +80,6 @@ public class AuthController {
 		}
 
 }
-		
 		
 	
 	@GetMapping("/logout")

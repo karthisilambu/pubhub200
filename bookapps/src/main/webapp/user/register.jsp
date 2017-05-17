@@ -27,12 +27,12 @@
 
 					<div class="form-group">
 						<label for="name">NAME:</label><input type="text"
-							class="form-control" name="name" required="required" id="name" />
+							class="form-control" name="name" required="required" id="name" value="${regFormData.name.trim()}"/>
 					</div>
 
 					<div class="form-group">
 						<label for="emailId">E-MAILID:</label><input type="email"
-							class="form-control" name="email" required="required" id="email" />
+							class="form-control" name="email" required="required" id="email" value="${regFormData.email.trim()}" />
 					</div>
 					<div class="form-group">
 						<label for="password">PASSWORD:</label><input type="password"
