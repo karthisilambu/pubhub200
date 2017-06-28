@@ -17,7 +17,4 @@ public class OrderItemService {
 	public void save(OrderItem orderItem) {
 		orderItemRepository.save(orderItem);
 	}
-
-	
-
 }

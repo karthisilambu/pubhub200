@@ -33,7 +33,6 @@ public String addToCart(@RequestParam("book_id") Long bookId, @RequestParam("qty
 		order = new Order();
 		order.setUser(user);
 		order.setTotalPrice("0");
-		
 		order.setStatus("ORDERED");
 	}
 

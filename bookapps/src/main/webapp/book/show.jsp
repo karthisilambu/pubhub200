@@ -16,7 +16,7 @@
 
 				<b>Item Details</b>
 				<c:if test="${empty LOGGED_IN_USER}">
-					<div class="alert alert-danger" role="alert">
+	  				<div class="alert alert-danger" role="alert">
 						Please <strong>Login</strong> to add items to cart.
 					</div>
 				</c:if>

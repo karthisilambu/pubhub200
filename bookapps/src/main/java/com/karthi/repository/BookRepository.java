@@ -12,6 +12,5 @@ public interface BookRepository extends JpaRepository<Book, Long> {
 
 	List<Book> findByOrderByPriceAsc();
 
-	List<Book> findByOrderByReleasedDateDesc();
-	
+	List<Book> findByOrderByReleasedDateDesc();	
 }

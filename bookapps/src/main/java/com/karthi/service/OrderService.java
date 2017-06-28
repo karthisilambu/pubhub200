@@ -10,18 +10,28 @@ import org.springframework.stereotype.Service;
 
 import com.karthi.model.Order;
 import com.karthi.repository.OrderRepositor;
+import com.karthi.util.EmailUtil;
 
 @Service
 public class OrderService {
 	@Autowired
 	private OrderRepositor orderRepository;
 	
+	@Autowired
+	private EmailUtil emailUtil;
+	
+	
+			public void save(Order order ) throws Exception {
+			        
+			        String subject = "Your Order Detials";
+			        String body = "Welcome to Book Store you are sucessfully place the order !";
+			        
+			        emailUtil.send(order.getUser().getEmail(), subject, body);
+			        orderRepository.save(order);
+			}
+	
 	public List<Order> findAll(){
 		return orderRepository.findAll();
-	}
-	
-	public void save(Order order) {
-		orderRepository.save(order);
 	}
 
 	public Order findOne(Integer id){

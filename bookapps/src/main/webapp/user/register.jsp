@@ -18,7 +18,7 @@
 				</c:forEach>
 				
 				<c:if test="${not empty ERROR_MESSAGE}">
-					<font color="red"><c:out value="${ERROR_MESSAGE}" /></font> <br/>
+			 		<font color="red"><c:out value="${ERROR_MESSAGE}" /></font> <br/>
 				</c:if>
 				
 				         

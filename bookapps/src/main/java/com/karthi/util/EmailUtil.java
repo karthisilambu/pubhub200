@@ -24,3 +24,4 @@ public class EmailUtil {
 		System.out.println("mail sent...");
 	}   
 }
+

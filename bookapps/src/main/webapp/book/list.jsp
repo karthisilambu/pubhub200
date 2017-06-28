@@ -26,7 +26,7 @@
 				<c:forEach items="${books}" var="book">
 					<div class="row book-container-bg">
 						<div class="col-lg-4 col-md-4 col-xs-12">
-							<img class="card-img-left" src="../assets/images/java.jpg" width="100"
+		 					<img class="card-img-left" src="../assets/images/java.jpg" width="100"
 								alt="Card image cap">
 						</div>
 

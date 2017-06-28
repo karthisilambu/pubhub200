@@ -1,7 +1,7 @@
 package com.karthi.controller;
 import javax.servlet.http.HttpSession;
-
 import javax.validation.Valid;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
+import com.karthi.form.LoginForm;
 import com.karthi.form.RegistrationForm;
 import com.karthi.model.User;
 import com.karthi.service.UserService;
@@ -29,24 +29,32 @@ public class AuthController {
 	private EmailUtil emailUtil;
 	
 	@PostMapping("/login")
-	public String login(@RequestParam("email") String email, @RequestParam("password") String password,
-			ModelMap modelMap, HttpSession session) {
-		
+	
+	public String login(@ModelAttribute @Valid LoginForm logUser, BindingResult result, ModelMap modelMap,
+			HttpSession session) throws Exception  {
 		LOGGER.info("Entering Login");
-		LOGGER.debug(new Object[] { email, password });
-
-		User user = userService.findByEmailAndPassword(email, password);
-		LOGGER.info("User:" + user);
-		if (user != null) {
-			session.setAttribute("LOGGED_IN_USER", user);	 	
-			session.setAttribute("logid",email);
-			LOGGER.info("Login Success");
-			return "redirect:../books";
-		} else{
-			LOGGER.error("Login Failure");
-			modelMap.addAttribute("error_msg", "invalid username or password");
-			return "fail";
-	}
+		LOGGER.debug(new Object[] { logUser.getEmail(), logUser.getPassword()});
+			User userObj = userService.findByEmailAndPassword(logUser.getEmail(), logUser.getPassword());
+			if (result.hasErrors()) {
+				modelMap.addAttribute("errors", result.getAllErrors());
+				modelMap.addAttribute("regFormData", logUser);
+				return "index";
+			}
+			else if (userObj != null) {
+				session.setAttribute("LOGGED_IN_USER", userObj);
+				session.setAttribute("loguser", userObj.getName());
+				session.setAttribute("logid", logUser.getEmail());
+				LOGGER.info("login sucess");
+				System.out.println("valid user"+userObj);
+				return "redirect:../books";
+			} 
+			else {
+				modelMap.addAttribute("msg", "invalid user");
+				return "index";
+			}
+	
+	
+	
 	}
 
 
@@ -80,8 +88,6 @@ public class AuthController {
 		}
 
 }
-		
-	
 	@GetMapping("/logout")
 	public String logout(HttpSession session) {
 		session.invalidate();

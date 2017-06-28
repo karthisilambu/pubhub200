@@ -20,7 +20,7 @@
 						<a href="../books" class="btn btn-info">Continue Shopping</a>
 					</c:if>
 					<c:if test="${!empty MY_CART_ITEMS && !MY_CART_ITEMS.orderItems.isEmpty()}">
-						<table border="1" class="table table-bordered">
+			 			<table border="1" class="table table-bordered">
 							<thead>
 								<tr>
 									<th width="10%">#</th>

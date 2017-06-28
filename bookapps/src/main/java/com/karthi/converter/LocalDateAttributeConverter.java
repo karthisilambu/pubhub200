@@ -23,5 +23,4 @@ public class LocalDateAttributeConverter implements AttributeConverter<LocalDate
 		// TODO Auto-generated method stub
 		return (sqlDate == null ? null : sqlDate.toLocalDate());
 	}
-
 }

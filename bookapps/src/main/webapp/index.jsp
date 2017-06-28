@@ -13,7 +13,7 @@
 				<%
 				Object object = session.getAttribute("LOGGED_IN_USER");
 				if ( object != null ){
-					response.sendRedirect("/books");
+			 		response.sendRedirect("/books");
 				}
 				%>
 				<div class="portlet-title">

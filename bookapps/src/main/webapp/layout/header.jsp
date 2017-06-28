@@ -15,7 +15,7 @@
 <script src="../assets/js/bootstrap.min.js"></script>
 
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap4.min.css" />
-
+ 
 <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.10.15/datatables.min.css"/>
 <script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.15/datatables.min.js"></script>
  -->      
@@ -52,6 +52,8 @@
             <a class="nav-link dropdown-toggle" href="" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admin</a>
             <div class="dropdown-menu" aria-labelledby="dropdown01">            
 			<a class="dropdown-item" href="../orders">All Orders</a>
+			<a class="dropdown-item" href="../users">All Users</a>
+            
             </div>
           </li>
           </c:if>
@@ -61,11 +63,11 @@
         
          <ul class="navbar-nav mr-auto pull-right">                  
          <c:if  test="${!empty LOGGED_IN_USER}">
-         <li class="nav-item"><a class="nav-link"> Welcome ${logid}  </a></li>
+         <li class="nav-item"><a class="nav-link"> Welcome ${LOGGED_IN_USER.name}(${LOGGED_IN_USER.role.name})  </a></li>
          
          
          <c:if  test="${empty LOGGED_IN_USER}">
-         <li class="nav-item"><a class="nav-link"> Welcome ${LOGGED_IN_USER.name}(${LOGGED_IN_USER.role.name})</a></li>
+         <li class="nav-item"><a class="nav-link"> Welcome ${LOGGED_IN_USER.name}(${LOGGED_IN_USER.roll.name})</a></li>
        	  	<a  href="../auth/login" class="btn btn-primary">Login</a> 
         	 <a  href="../auth/register" class="btn btn-success">SignUp</a>
          </c:if>

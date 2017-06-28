@@ -60,10 +60,6 @@ public class Role {
 
 	@Override
 	public String toString() {
-		return "Roll [id=" + id + ", name=" + name + ", active=" + active + ", created_date=" + created_date + "]";
+		return "Role [id=" + id + ", name=" + name + ", active=" + active + ", created_date=" + created_date + "]";
 	}
-	
-	
-	
-
 }

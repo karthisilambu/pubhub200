@@ -25,6 +25,6 @@ public class UserController {
 		List<User> users = userService.findAll();
 		System.out.println(users);
 		session.setAttribute("USERS_LIST", users);
-return "user/register";
+return "user/allusers";
 } 
 }

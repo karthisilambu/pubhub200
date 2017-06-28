@@ -52,7 +52,7 @@ public class Order {
 	private LocalDate cancelledDate;
 
 	@Column(name = "delivered_date")
-	private LocalDate deliveredDate;
+	private LocalDateTime deliveredDate;
 
 	@Column(name = "paymentmode")
 	private String paymentmode;
@@ -106,13 +106,7 @@ public class Order {
 		this.cancelledDate = cancelledDate;
 	}
 
-	public LocalDate getDeliveredDate() {
-		return deliveredDate;
-	}
-
-	public void setDeliveredDate(LocalDate deliveredDate) {
-		this.deliveredDate = deliveredDate;
-	}
+	
 
 	public String getPaymentmode() {
 		return paymentmode;
@@ -130,13 +124,18 @@ public class Order {
 		this.totalPrice = totalPrice;
 	}
 
+	public LocalDateTime getDeliveredDate() {
+		return deliveredDate;
+	}
+
+	public void setDeliveredDate(LocalDateTime deliveredDate) {
+		this.deliveredDate = deliveredDate;
+	}
+
 	@Override
 	public String toString() {
 		return "Order [id=" + id + ", user=" + user + ", totalPrice=" + totalPrice + ", status=" + status
 				+ ", orderItems=" + orderItems + ", orderedDate=" + orderedDate + ", cancelledDate=" + cancelledDate
 				+ ", deliveredDate=" + deliveredDate + ", paymentmode=" + paymentmode + "]";
 	}
-
-	
-
 }

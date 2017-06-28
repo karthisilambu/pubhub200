@@ -32,6 +32,7 @@ private BookRepository bookRepository;
 	}
 
 	public Book findOne(Long id){
+		
 		return bookRepository.findOne(id);
 }
 	}

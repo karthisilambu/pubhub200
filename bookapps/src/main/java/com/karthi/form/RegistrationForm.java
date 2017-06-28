@@ -56,6 +56,4 @@ public class RegistrationForm {
 	public String toString() {
 		return "RegistrationForm [name=" + name + ", email=" + email + ", password=" + password + "]";
 	}
-	
- 
 }
